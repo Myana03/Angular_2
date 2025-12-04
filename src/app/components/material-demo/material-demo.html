@@ -1,0 +1,103 @@
+<h3>lets learn angular material</h3>
+<div class="border border-2 p-2 mx 2">
+  <h3>Buttons:</h3>
+  <button matButton (click)="f1()">Basic</button>
+  <button matButton="elevated">elevated</button>
+  <button matButton="outlined">outlined</button>
+  <button matButton="filled">filled</button>
+  <button matButton="tonal">tonal</button>
+</div>
+
+<div class="border border-2 p-2 mx 2">
+  <h3>Cards:</h3>
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://material.angular.dev/assets/img/examples/shiba2.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
+        Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
+        originally bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button matButton>LIKE</button>
+      <button matButton>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<div class="border border-2 p-2 mx 2">
+  <h3>dialog:</h3>
+  <button matButton (click)="openDialog()">Launch dialog</button>
+</div>
+
+<div class="border border-2 p-2 mx 2">
+  <h3>spinner:</h3>
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="border border-2 p-2 mx 2">
+  <h3>slider:</h3>
+  <mat-slider>
+    <input matSliderThumb />
+  </mat-slider>
+</div>
+
+<div class="border border-2 p-2 mx 2">
+  <mat-form-field>
+    <mat-label>Message</mat-label>
+    <input matInput value="Disco party!" #message />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Action</mat-label>
+    <input matInput value="Dance" #action />
+  </mat-form-field>
+
+  <button matButton="outlined" (click)="openSnackBar(message.value, action.value)">
+    Show snack-bar
+  </button>
+</div>
+
+<div class="border border-2 p-2 mx 2">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef>Weight</th>
+      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef>Symbol</th>
+      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
